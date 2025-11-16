@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        解密三星加密固件版本号
+// @name        Decrypt Samsung Encrypted Firmware Version Number
 // @namespace   Violentmonkey Scripts
 // @match       https://fota-cloud-dn.ospserver.net/firmware/*/version.test.xml
 // @grant       none
@@ -27,8 +27,8 @@
             var model = host[host.length - 2]
             if (jsObj[model] != null) {
                 for (var i in md5List) {
-                    if (jsObj[model][cc]['版本号'][md5List[i]] != null) {
-                        doc[i].childNodes[1].innerHTML = jsObj[model][cc]['版本号'][md5List[i]];
+                    if (jsObj[model][cc]['versions'][md5List[i]] != null) {
+                        doc[i].childNodes[1].innerHTML = jsObj[model][cc]['versions'][md5List[i]];
                         doc[i].childNodes[1].setAttribute("style", "color:#ed1c24")
                     }
                 }
