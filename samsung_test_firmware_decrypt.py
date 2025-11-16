@@ -744,6 +744,7 @@ def DecryptionFirmware(
         return Dicts
     except Exception as e:
         printStr(f"Error occurred: {e}")
+        return None
 
 
 # def make_sort_key(strings):
@@ -1083,7 +1084,7 @@ def process_cc(cc, modelDic, oldMD5Dict, md5Dic, oldJson, model):
     newMD5Dict[model][cc]["firmware_count"] = len(md5Dic[cc])
 
     verDic = DecryptionFirmware(model, md5Dic, cc, modelDic, oldJson)  # Decrypt to get new data
-    if verDic is None or model not in verDic or cc not in verDic[model]:
+    if verDic is None or model not in verDic or cc not in verDic[model] or "versions" not in verDic[model][cc]:
         return False, {}, {}
     if (
         newMDic[model][cc]["latest_official"] != ""
@@ -1111,8 +1112,6 @@ def process_cc(cc, modelDic, oldMD5Dict, md5Dic, oldJson, model):
 
     newMDic[model][cc]["region"] = getCountryName(cc)
     newMDic[model][cc]["model"] = modelDic[model]["name"]
-    if verDic == None:
-        return
     if verDic[model][cc]["major_version_test"] != "":
         newMDic[model][cc]["major_version_test"] = verDic[model][cc]["major_version_test"]
     if verDic[model][cc]["regular_update_test"] != "":
