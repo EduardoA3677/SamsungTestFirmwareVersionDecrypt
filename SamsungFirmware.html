@@ -462,12 +462,12 @@
         document.addEventListener('DOMContentLoaded', () => {
             const timestamp = Date.now()
             // Support both GitHub Pages and CDN
-            // When running on GitHub Pages, use relative path
+            // When running on GitHub Pages or localhost, use relative path
             // Otherwise, use CDN (jsdelivr)
-            const isGitHubPages = window.location.hostname.includes('github.io');
+            const isGitHubPages = window.location.hostname.includes('github.io') || window.location.hostname === 'localhost';
             const DATA_URL = isGitHubPages 
                 ? `./firmware_mini.json?v=${timestamp}`
-                : `https://cdn.jsdelivr.net/gh/Mai19930513/SamsungTestFirmwareVersionDecrypt/firmware_mini.json?v=${timestamp}`;
+                : `https://cdn.jsdelivr.net/gh/EduardoA3677/SamsungTestFirmwareVersionDecrypt/firmware_mini.json?v=${timestamp}`;
             
             class FirmwareTable {
                 constructor() {
@@ -479,12 +479,12 @@
                     this.sortOrder = 'desc'; // Default sort order is descending
                     this.sortKey = 'model';
                     this.copyEventBound = false; // Event delegation marker
+                    this.processedData = []; // Initialize processedData to empty array
                     this.initFilters();
                     this.loadData();
                     this.initScrollListener();
                     this.initSortListeners(); // Initialize sort event listeners
                     this.addCopyEvent(); // Only bind event delegation once
-                    this.checkAutoLoad(); // Check on page initialization
                 }
                 initSortListeners() {
                     const sortModelHeader = document.getElementById('sortModel');
@@ -540,6 +540,7 @@
                         sortModelHeader.classList.add('desc');
 
                         this.renderTable();
+                        this.checkAutoLoad(); // Check after initial data load
                     } catch (error) {
                         console.error('Data loading failed:', error);
                     }
