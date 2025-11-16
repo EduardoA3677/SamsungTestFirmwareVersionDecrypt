@@ -1,12 +1,12 @@
-[![生成固件解密json文件](https://github.com/Mai19930513/SamsungTestFirmwareVersionDecrypt/actions/workflows/python-app.yml/badge.svg)](https://github.com/Mai19930513/SamsungTestFirmwareVersionDecrypt/actions/workflows/python-app.yml)
-# 主要功能
-通过生成序列号穷举MD5编码后的结果与官网对比，达到解码版本号的功能。
-三星测试版固件官网:`https://fota-cloud-dn.ospserver.net/firmware/区域码/设备型号/version.test.xml`,示例网站：如[国行版S24 Ultra](https://fota-cloud-dn.ospserver.net/firmware/CHC/SM-S9280/version.test.xml)
-# 如何添加自己需要的设备
-`Fork`本项目或`git clone`代码到本地,修改`models.txt`，添加格式为`设备名称,设备型号,地区代码(多个地区用|分隔)`，将自己需要的设备型号添加进去；并将`三星测试版固件版本号解密.py`文件最下面的`getModelDictsFromDB`改为`getModelDicts`,重新运行脚本。
+[![Generate Firmware Decryption JSON File](https://github.com/Mai19930513/SamsungTestFirmwareVersionDecrypt/actions/workflows/python-app.yml/badge.svg)](https://github.com/Mai19930513/SamsungTestFirmwareVersionDecrypt/actions/workflows/python-app.yml)
+# Main Features
+Decrypts Samsung test firmware version numbers by generating serial numbers, calculating their MD5 hashes, and comparing with the official website.
+Samsung test firmware website: `https://fota-cloud-dn.ospserver.net/firmware/[RegionCode]/[DeviceModel]/version.test.xml`, example: [China S24 Ultra](https://fota-cloud-dn.ospserver.net/firmware/CHC/SM-S9280/version.test.xml)
+# How to Add Your Own Device
+`Fork` this project or `git clone` the code locally, modify `models.txt`, add entries in the format `DeviceName,DeviceModel,RegionCode(multiple regions separated by |)`, add your required device models; and change `getModelDictsFromDB` to `getModelDicts` at the bottom of the `samsung_test_firmware_decrypt.py` file, then re-run the script.
 
 
-# 如何根据三星固件版本号获取相关信息？
+# How to Get Information from Samsung Firmware Version Numbers?
 以S24 Ultra这个型号的"S9280ZCU4BXKV/S9280CHC4BXKV/S9280ZCU4BXKV"为例，
 首先以"/"为分隔符将版本号分为3个部分，分别表示`内部版本号`、`CSC版本号`、`基带版本号`(wifi版无基带版本号)
 ## 以内部版本号"S9280ZCU4BXKV"为例：

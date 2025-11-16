@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>三星固件版本查询系统</title>
+    <title>Samsung Firmware Version Query System</title>
     <style>
         :root {
             --primary-color: #4a90e2;
@@ -52,14 +52,14 @@
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
             flex-wrap: wrap;
-            /* 在小屏幕上换行 */
+            /* Wrap on small screens */
             margin-bottom: 2rem;
         }
 
         .filter-group {
             position: relative;
             flex: 1 1 100%;
-            /* 在小屏幕上每个筛选器占满一行 */
+            /* Each filter takes full row on small screens */
         }
 
         .filter-group i {
@@ -94,7 +94,7 @@
             overflow: hidden;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
             isolation: isolate;
-            /* 隔离层叠上下文 */
+            /* Isolate stacking context */
         }
 
         th,
@@ -108,18 +108,18 @@
 
         th {
             background: var(--primary-color) !important;
-            /* 强制背景色 */
+            /* Force background color */
             color: white !important;
             position: sticky;
             min-width: 100px;
-            /* 设置最小宽度 */
+            /* Set minimum width */
             white-space: nowrap;
-            /* 禁止文字换行 */
+            /* Prevent text wrapping */
             top: 0 !important;
             overflow: visible;
-            /* 确保内容不被隐藏 */
+            /* Ensure content is not hidden */
             text-overflow: clip;
-            /* 禁止省略号显示 */
+            /* Disable ellipsis */
             z-index: 1001 !important;
             border-bottom: 1px solid #f0f0f0;
         }
@@ -184,31 +184,31 @@
 
         .last-update {
             text-align: center;
-            /* 文字右对齐 */
+            /* Right align text */
             position: static;
-            /* 使用绝对定位 */
+            /* Use absolute positioning */
             top: 10px;
-            /* 距离顶部 20px */
+            /* 10px from top */
             right: 25px;
-            /* 距离右侧 20px */
+            /* 25px from right */
             font-size: 0.9rem;
-            /* 字体稍小 */
+            /* Slightly smaller font */
             color: #4a90e2;
-            /* 使用主色调 */
+            /* Use primary color */
             font-weight: bold;
-            /* 加粗字体 */
+            /* Bold font */
             background-color: #f0f8ff;
-            /* 添加浅蓝色背景 */
+            /* Add light blue background */
             padding: 0.6rem 1rem;
-            /* 内边距 */
+            /* Padding */
             border-radius: 8px;
-            /* 圆角边框 */
+            /* Rounded border */
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            /* 添加阴影效果 */
+            /* Add shadow effect */
             z-index: 1000;
-            /* 确保在其他内容之上 */
+            /* Ensure above other content */
             margin-bottom: 1rem;
-            /* 增加与下方内容的间距 */
+            /* Increase spacing from below */
 
         }
 
@@ -227,10 +227,10 @@
                 font-size: 0.8rem;
             }
 
-            /* 隐藏地区代码 */
+            /* Hide region code */
             th:nth-child(3),
             td:nth-child(3) {
-                /* 隐藏测试版本号说明 */
+                /* Hide test version description */
                 display: none;
             }
 
@@ -239,30 +239,30 @@
         @media (min-width: 768px) {
             .last-update {
                 position: absolute;
-                /* 在大屏幕上恢复绝对定位 */
+                /* Restore absolute positioning on large screens */
                 top: 10px;
                 right: 25px;
             }
         }
 
-        /* 清空按钮 */
+        /* Clear button */
 
         .filter-group {
             flex: 1 1 100%;
-            /* 在小屏幕上每个筛选器占满一行 */
+            /* Each filter takes full row on small screens */
         }
 
         .clear-btn {
             width: 100%;
-            /* 在小屏幕上按钮占满一行 */
+            /* Button takes full row on small screens */
             text-align: center;
             display: flex;
             align-items: center;
             padding: 0.8rem;
             justify-content: center;
-            /* 水平居中 */
+            /* Horizontally center */
             align-items: center;
-            /* 垂直居中 */
+            /* Vertically center */
             border: 2px solid #e0e0e0;
             border-radius: 8px;
             background: white;
@@ -285,22 +285,22 @@
         @media (min-width: 768px) {
             .clear-btn {
                 width: auto;
-                /* 在大屏幕上恢复为自动宽度 */
+                /* Restore auto width on large screens */
             }
 
             .filter-group {
                 flex: 1 1 auto;
-                /* 在大屏幕上恢复为水平布局 */
+                /* Restore horizontal layout on large screens */
             }
 
         }
 
-        /* 自定义弹窗样式 */
+        /* Custom popup style */
         .custom-popup {
             width: 90%;
-            /* 在小屏幕上限制弹窗宽度 */
+            /* Limit popup width on small screens */
             max-width: 450px;
-            /* 设置最大宽度 */
+            /* Set maximum width */
             position: fixed;
             top: 95%;
             left: 50%;
@@ -330,7 +330,7 @@
 
         .sortable::after {
             content: '▲';
-            /* 默认显示升序箭头 */
+            /* Default ascending arrow */
             font-size: 0.7rem;
             margin-left: 5px;
             /* transition: transform 0.3s ease; */
@@ -338,26 +338,26 @@
 
         .sortable.desc::after {
             content: '▼';
-            /* 显示降序箭头 */
+            /* Show descending arrow */
         }
 
         .android_os {
             font-size: 0.7rem;
-            /* 字体稍小 */
+            /* Slightly smaller font */
             color: #4a90e2;
-            /* 使用灰色 */
+            /* Use gray */
             margin-top: 0.3rem;
-            /* 与上方内容保持间距 */
+            /* Maintain spacing from above */
             display: block;
-            /* 独占一行 */
+            /* Take up full row */
             font-weight: bold;
-            /* 加粗字体 */
+            /* Bold font */
             padding: 0.1rem 0.4rem;
-            /* 内边距 */
+            /* Padding */
             border-radius: 20px;
-            /* 圆角边框 */
+            /* Rounded border */
             text-align: center;
-            /* 居中对齐 */
+            /* Center align */
             border: 0.5px SOLID
         }
 
@@ -406,31 +406,31 @@
             top: 0;
             z-index: 1100;
             background: #fff;
-            /* 保证有背景色，避免内容叠加 */
+            /* Ensure background color to avoid content overlap */
             box-shadow: 0 2px 8px rgba(74, 144, 226, 0.06);
             padding-bottom: 1rem;
-            /* 可选：加点阴影和间距 */
+            /* Optional: add some shadow and spacing */
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h1><i class="title"></i>三星测试版固件版本查询</h1>
+        <h1><i class="title"></i>Samsung Test Firmware Version Query</h1>
         <div id="lastUpdate" class="last-update"></div>
         <div class="filters">
             <div class="filter-group">
                 <i class="fas fa-search"></i>
-                <input type="text" id="modelFilter" placeholder="输入设备型号(如:SM-S9280)">
+                <input type="text" id="modelFilter" placeholder="Enter device model (e.g., SM-S9280)">
             </div>
             <div class="filter-group">
                 <i class="fas fa-globe-asia"></i>
-                <input type="text" id="regionFilter" placeholder="输入地区代码(如:CHC)">
+                <input type="text" id="regionFilter" placeholder="Enter region code (e.g., CHC)">
             </div>
-            <!-- 新增：清空按钮 -->
+            <!-- New: Clear button -->
             <div class="filter-group">
-                <button id="clearFilters" class="clear-btn" title="清空筛选">
-                    <i class="fas fa-times"></i> 清空
+                <button id="clearFilters" class="clear-btn" title="Clear filters">
+                    <i class="fas fa-times"></i> Clear
                 </button>
             </div>
         </div>
@@ -439,20 +439,20 @@
             <table id="firmwareTable">
                 <thead>
                     <tr>
-                        <th>设备名称</th>
-                        <th id="sortModel" class="sortable">设备型号</th>
-                        <th>地区代码</th>
-                        <th>地区名称</th>
-                        <th>最新正式版</th>
-                        <th>最新测试版</th>
-                        <th id="sortUpdateTime" class="sortable">测试版上线时间</th>
-                        <th>测试版本号说明</th>
+                        <th>Device Name</th>
+                        <th id="sortModel" class="sortable">Device Model</th>
+                        <th>Region Code</th>
+                        <th>Region Name</th>
+                        <th>Latest Official</th>
+                        <th>Latest Test</th>
+                        <th id="sortUpdateTime" class="sortable">Test Release Time</th>
+                        <th>Test Version Description</th>
                     </tr>
                 </thead>
                 <tbody></tbody>
             </table>
             <div class="no-results" id="noResults">
-                <i></i> 没有找到匹配的结果
+                <i></i> No matching results found
             </div>
         </div>
 
@@ -507,7 +507,7 @@
                         let valueB = b[key];
                         // 针对时间字段做特殊处理
                         if (key === 'updateTime') {
-                            // 统一为时间戳，未知排最后
+                            // Unified to timestamp, unknown goes last
                             valueA = Date.parse(valueA) || 0;
                             valueB = Date.parse(valueB) || 0;
                         } else {
@@ -526,15 +526,15 @@
                         const response = await fetch(DATA_URL)
                         const data = await response.json();
                         this.processData(data);
-                        // 默认按设备型号降序排序
+                        // Default sort by device model in descending order
                         this.sortData('model', this.sortOrder);
-                        // 更新箭头样式
+                        // Update arrow style
                         const sortModelHeader = document.getElementById('sortModel');
                         sortModelHeader.classList.add('desc');
 
                         this.renderTable();
                     } catch (error) {
-                        console.error('数据加载失败:', error);
+                        console.error('Data loading failed:', error);
                     }
                 }
 
@@ -575,15 +575,15 @@
                     });
                 }
                 checkAutoLoad() {
-                    // 防止递归死循环
+                    // Prevent infinite recursion
                     if (this.isLoading) return;
-                    // 获取当前筛选后的数据总量
+                    // Get current filtered data total
                     const filteredData = this.processedData.filter(item => {
                         const modelMatch = item.model.toLowerCase().includes(this.filters.model.toLowerCase());
                         const regionMatch = item.regionCode.toLowerCase().includes(this.filters.region.toLowerCase());
                         return modelMatch && regionMatch;
                     });
-                    // 只要页面未填满且还有数据就继续加载
+                    // Continue loading as long as page is not full and there is still data
                     if (
                         this.currentIndex < filteredData.length &&
                         document.body.scrollHeight <= window.innerHeight + 10
@@ -593,11 +593,11 @@
                 }
                 parseVersion(version) {
                     if (!version || typeof version !== 'string') {
-                        console.warn('无效的版本号:', version);
-                        return "未知版本"; // 返回默认值
+                        console.warn('Invalid version number:', version);
+                        return "Unknown version"; // Return default value
                     }
                     const parts = version.split('/');
-                    return parts[0]; // 返回分割后的第一个部分
+                    return parts[0]; // Return first part after split
                 }
 
                 renderTable() {
@@ -685,33 +685,33 @@
                         region: '',
                     };
 
-                    // 绑定筛选事件
+                    // Bind filter events
                     document.getElementById('modelFilter').addEventListener('input', debounce(e => {
                         this.filters.model = e.target.value;
-                        this.resetTable(); // 重置表格
+                        this.resetTable(); // Reset table
                     }, 300));
 
                     document.getElementById('regionFilter').addEventListener('input', debounce(e => {
                         this.filters.region = e.target.value;
-                        this.resetTable(); // 重置表格
+                        this.resetTable(); // Reset table
                     }, 300));
 
                     document.getElementById('clearFilters').addEventListener('click', debounce(e => {
-                        // 清空 state
+                        // Clear state
                         this.filters.model = '';
                         this.filters.region = '';
-                        // 清空输入框
+                        // Clear input fields
                         document.getElementById('modelFilter').value = '';
                         document.getElementById('regionFilter').value = '';
-                        // 重置并重新渲染表格
+                        // Reset and re-render table
                         this.resetTable();
                     }, 300));
                 }
 
                 resetTable() {
-                    this.currentIndex = 0; // 重置索引
-                    this.tableBody.innerHTML = ''; // 清空表格
-                    this.renderTable(); // 重新渲染表格
+                    this.currentIndex = 0; // Reset index
+                    this.tableBody.innerHTML = ''; // Clear table
+                    this.renderTable(); // Re-render table
                 }
 
                 renderPagination(totalItems, currentPage, pageSize) {
@@ -721,10 +721,10 @@
 
                     paginationContainer.innerHTML = '';
                     if (totalPages === 0) {
-                        paginationContainer.style.display = 'none'; // 隐藏分页容器
+                        paginationContainer.style.display = 'none'; // Hide pagination container
                         return;
                     }
-                    paginationContainer.style.display = 'block'; // 显示分页容器
+                    paginationContainer.style.display = 'block'; // Show pagination container
                     for (let i = 1; i <= totalPages; i++) {
                         const button = document.createElement('button');
                         button.textContent = i;
@@ -734,37 +734,37 @@
                     }
                 }
 
-                // 事件委托，只绑定一次
+                // Event delegation, bind only once
                 addCopyEvent() {
                     if (this.copyEventBound) return;
                     this.tableBody.addEventListener('click', (e) => {
                         const cell = e.target.closest('.copyable');
                         if (cell) {
                             const textToCopy = cell.getAttribute('title');
-                            if (textToCopy && textToCopy !== '无版本号') {
+                            if (textToCopy && textToCopy !== 'No version number') {
                                 navigator.clipboard.writeText(textToCopy).then(() => {
-                                    this.showCustomPopup(`已复制到剪贴板: ${textToCopy}`);
+                                    this.showCustomPopup(`Copied to clipboard: ${textToCopy}`);
                                 }).catch(err => {
-                                    console.error('复制失败:', err);
+                                    console.error('Copy failed:', err);
                                 });
                             } else {
-                                this.showCustomPopup('无可复制的版本号');
+                                this.showCustomPopup('No version number to copy');
                             }
                         }
                     });
                     this.copyEventBound = true;
                 }
 
-                // 自定义弹窗显示方法
+                // Custom popup display method
                 showCustomPopup(message) {
                     const popup = document.createElement('div');
                     popup.className = 'custom-popup';
                     popup.textContent = message;
 
-                    // 添加到页面
+                    // Add to page
                     document.body.appendChild(popup);
 
-                    // 显示弹窗并在 2 秒后自动移除
+                    // Show popup and auto-remove after 2 seconds
                     setTimeout(() => {
                         popup.classList.add('fade-out');
                         popup.addEventListener('transitionend', () => {
@@ -774,7 +774,7 @@
                 }
 
             }
-            // 防抖函数
+            // Debounce function
             function debounce(func, delay) {
                 let timer;
                 return function (...args) {
@@ -782,7 +782,7 @@
                     timer = setTimeout(() => func.apply(this, args), delay);
                 };
             }
-            // 节流函数
+            // Throttle function
             function throttle(func, delay) {
                 let last = 0;
                 return function (...args) {
@@ -793,7 +793,7 @@
                     }
                 }
             }
-            // 初始化表格
+            // Initialize table
             new FirmwareTable();
         });
     </script>
