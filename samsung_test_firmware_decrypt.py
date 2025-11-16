@@ -1215,7 +1215,12 @@ if __name__ == "__main__":
             # modelDic = dict(list(getModelDictsFromDB().items())[:5])  # Use for testing
             modelDic = {"SM-S731U": {"name": "S25 FE", "CC": ["ATT"]}}  # Use for testing
         else:
-            modelDic = getModelDictsFromDB()  # Get model information
+            try:
+                modelDic = getModelDictsFromDB()  # Get model information from database
+            except Exception as db_error:
+                printStr(f"Database connection failed: {db_error}")
+                printStr("Falling back to file-based model reading...")
+                modelDic = getModelDicts()  # Fall back to file-based model reading
         run()
     except func_timeout.exceptions.FunctionTimedOut:
         printStr("Task timeout, execution exited!")
