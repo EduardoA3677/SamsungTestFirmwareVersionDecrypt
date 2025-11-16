@@ -108,6 +108,7 @@ def getCountryName(cc):
         "INS": "India",
         "XAA": "USA",
         "ATT": "USA",
+        "TPA": "Panama",
     }
     if cc in cc2Country.keys():
         return cc2Country[cc]
@@ -376,6 +377,7 @@ def DecryptionFirmware(
                 "XAA": ["UE", "OYM", "UE"],
                 "ATT": ["SQ", "OYN", "SQ"],
                 "KOO": ["KS", "OKR", "KS"],
+                "TPA": ["PA", "TPA", "PA"],
             }  # CHC corresponds to China, the following dictionaries represent AP version number prefix, carrier CSC version number prefix, and whether it has baseband version number; CHN is without version number
             if cc in ccList.keys():
                 latestVer = ""
