@@ -1,7 +1,7 @@
 # This workflow will install Python dependencies, run tests and lint with a single version of Python
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
-name: 生成固件解密json文件
+name: Generate firmware decryption json file
 
 on:
   workflow_dispatch:
@@ -20,10 +20,10 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: "3.10"
-    - name: 安装python依赖
+    - name: Install python dependencies
       run: |
         pip install -r requirements.txt
-    - name: 运行解密脚本
+    - name: Run decryption script
       env:
         DATABASE: ${{ secrets.DATABASE }}
         HOST: ${{ secrets.HOST }}
@@ -35,15 +35,15 @@ jobs:
         TG_USER_ID: ${{ secrets.TG_USER_ID }}
         TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
       run: |
-        python 三星测试版固件版本号解密.py
-    - name: 暂存提交
+        python samsung_test_firmware_decrypt.py
+    - name: Stage and commit
       run: |
           git config --global user.name ${{ secrets.USERNAME }}
           git config --global user.email ${{ secrets.USEREMAIL }}
           export TZ='Asia/Shanghai'
           git add .
-          git commit -m "更新json文件" -a
-    - name: 推送json文件
+          git commit -m "Update json files" -a
+    - name: Push json files
       uses: ad-m/github-push-action@master
       with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
