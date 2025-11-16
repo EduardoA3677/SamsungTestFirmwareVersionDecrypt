@@ -449,21 +449,21 @@ def DecryptionFirmware(
             startBLVersion = lastVersion1[-5]
             if latestVer != "":
                 startUpdateCount = latestVer[0][-4]
-            startYear = lastVersion1[-3]  #'A'表示2001年
+            startYear = lastVersion1[-3]  #'A' representa 2001
         if latestVer != "":
             endBLVersion = get_next_char(
                 latestVer[0][-5], "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
             )  # Decrypt until current bootloader version +1, possible value is 1
             endUpdateCount = get_next_char(latestVer[0][-4])  # Decrypt until current major version number +1
         updateLst = get_letters_range(startUpdateCount, endUpdateCount)
-        updateLst += "Z"  # 某些测试版倒数第4位以'Z'作为开头
+        updateLst += "Z"  # Algunas versiones beta tienen 'Z' como cuarto carácter desde el final
         if latestVer != "":
             if latestVer[0][-2] in "JKL":
                 endYear = get_next_char(
                     latestVer[0][-3], "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                )  # 如果当前测试固件月份为12月，则将测试固件年份+1
+                )  # Si el mes del firmware de prueba actual es diciembre, aumentar el año del firmware de prueba en 1
             else:
-                endYear = latestVer[0][-3]  # 获取当前年份，,倒数第3位
+                endYear = latestVer[0][-3]  # Obtener el año actual, tercer carácter desde el final
         starttime = time.perf_counter()
         for i1 in "US":
             for bl_version in get_letters_range(

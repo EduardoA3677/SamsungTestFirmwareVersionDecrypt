@@ -160,11 +160,11 @@
             max-height: 70vh;
             overflow-y: auto;
             overflow-x: auto;
-            /* 固定在页面顶部 */
+            /* Fijado en la parte superior de la página */
             background-color: white;
-            /* 设置背景颜色，避免透明 */
+            /* Establecer color de fondo, evitar transparencia */
             box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
-            /* 添加阴影效果 */
+            /* Agregar efecto de sombra */
             position: relative;
             z-index: 0;
         }
@@ -512,9 +512,9 @@
                     this.processedData.sort((a, b) => {
                         let valueA = a[key];
                         let valueB = b[key];
-                        // 针对时间字段做特殊处理
+                        // Procesamiento especial para campo de tiempo
                         if (key === 'updateTime') {
-                            // Unified to timestamp, unknown goes last
+                            // Unificado a timestamp, desconocido va al final
                             valueA = Date.parse(valueA) || 0;
                             valueB = Date.parse(valueB) || 0;
                         } else {
@@ -548,19 +548,19 @@
                 processData(rawData) {
                     this.processedData = [];
                     if (!rawData || typeof rawData !== 'object') {
-                        console.error('无效的数据格式:', rawData);
+                        console.error('Formato de datos inválido:', rawData);
                         return;
                     }
                     Object.entries(rawData).forEach(([model, regions]) => {
-                        // 跳过 "上次更新时间"
+                        // Saltar "Última actualización"
                         if (model === "上次更新时间") {
-                            document.getElementById('lastUpdate').textContent = `更新时间：${regions}`;
+                            document.getElementById('lastUpdate').textContent = `Última actualización: ${regions}`;
                             return;
                         }
                         Object.entries(regions).forEach(([regionCode, details]) => {
                             if (!details || !details.最新正式版 || !details.常规更新测试版) {
-                                console.warn('跳过无效数据:', { model, regionCode, details });
-                                return; // 跳过无效数据
+                                console.warn('Saltando datos inválidos:', { model, regionCode, details });
+                                return; // Saltar datos inválidos
                             }
                             this.processedData.push({
                                 model,
@@ -582,7 +582,7 @@
                     });
                 }
                 checkAutoLoad() {
-                    // Prevent infinite recursion
+                    // Prevenir recursión infinita
                     if (this.isLoading) return;
                     // Get current filtered data total
                     const filteredData = this.processedData.filter(item => {
@@ -608,28 +608,28 @@
                 }
 
                 renderTable() {
-                    if (this.isLoading) return; // 防止重复加载
+                    if (this.isLoading) return; // Prevenir carga duplicada
                     this.isLoading = true;
                     // 先移除已存在的“已到最后”提示行
                     const lastTipRow = this.tableBody.querySelector('tr[data-tip="end"]');
                     if (lastTipRow) lastTipRow.remove();
 
-                    // 应用筛选条件
+                    // Aplicar condiciones de filtro
                     const filteredData = this.processedData.filter(item => {
                         const modelMatch = item.model.toLowerCase().includes(this.filters.model.toLowerCase());
                         const regionMatch = item.regionCode.toLowerCase().includes(this.filters.region.toLowerCase());
                         return modelMatch && regionMatch;
                     });
 
-                    // 获取当前需要加载的数据
+                    // Obtener datos a cargar actualmente
                     const nextData = filteredData.slice(this.currentIndex, this.currentIndex + this.pageSize);
                     this.currentIndex += this.pageSize;
 
-                    // 动态生成表格行
+                    // Generar dinámicamente filas de la tabla
                     const fragment = document.createDocumentFragment();
                     nextData.forEach(item => {
                         const row = document.createElement('tr');
-                        row.classList.add('tr-fade-in'); // 添加动画类
+                        row.classList.add('tr-fade-in'); // Agregar clase de animación
                         row.innerHTML = `
                         <td>${item.deviceName}</td>
                         <td>${item.model}</td>
@@ -639,29 +639,29 @@
                             <div style="margin-bottom:0.5em;">
                                 ${item.official ? `<a href="https://samfw.com/firmware/${item.model}/${item.regionCode}/${item.official}" target="_blank" class="version-badge official-badge">${item.official}</a>` : '-'}
                             </div>
-                            <div class="android_os" style="margin-bottom:0.2em;">Android OS:${item.stableOS || '未知'}</div>
+                            <div class="android_os" style="margin-bottom:0.2em;">Android OS:${item.stableOS || 'Desconocido'}</div>
                         </td>
                         <td style="min-width:180px; vertical-align:middle; ">
                             <div>
-                                <span style="font-weight:bold;color:#4a90e2;display:inline-block;text-align:right;">日常更新(OS:${item.stableOS || '未知'})：</span>
+                                <span style="font-weight:bold;color:#4a90e2;display:inline-block;text-align:right;">Actualización Regular(OS:${item.stableOS || 'Desconocido'})：</span>
                                 ${item.minor ? `<span class="version-badge beta-badge">${item.minor}</span>` : '-'}
                             </div>
                             <div>
-                                <span style="font-weight:bold;color:#6c5ce7;display:inline-block;text-align:right;">下个版本(OS:${item.devOS || '未知'})：</span>
+                                <span style="font-weight:bold;color:#6c5ce7;display:inline-block;text-align:right;">Próxima Versión(OS:${item.devOS || 'Desconocido'})：</span>
                                 ${item.major ? `<span class="version-badge beta-badge">${item.major}</span>` : '-'}
                             </div>
                         </td>
-                        <td>${item.updateTime || '未知'}</td>
+                        <td>${item.updateTime || 'Desconocido'}</td>
                         <td>${item.description}</td>
                     `;
                         fragment.appendChild(row);
                     });
-                    // 判断是否已到最后，插入提示行
+                    // Determinar si llegó al final, insertar fila de pista
                     if (this.currentIndex >= filteredData.length && filteredData.length > 0) {
                         const tipRow = document.createElement('tr');
-                        tipRow.setAttribute('data-tip', 'end'); // 标记提示行
-                        tipRow.className = 'end-tip-row'; // 添加美观样式和动画
-                        tipRow.innerHTML = `<td colspan="8">加载完毕！共 ${filteredData.length} 条数据</td>`;
+                        tipRow.setAttribute('data-tip', 'end'); // Marcar fila de pista
+                        tipRow.className = 'end-tip-row'; // Agregar estilo y animación
+                        tipRow.innerHTML = `<td colspan="8">¡Carga completa! Total ${filteredData.length} registros</td>`;
                         fragment.appendChild(tipRow);
                     }
                     this.tableBody.appendChild(fragment);
@@ -670,20 +670,20 @@
                     document.getElementById('noResults').style.display =
                         filteredData.length ? 'none' : 'block';
 
-                    // 每次渲染后都检测是否需要继续加载
+                    // Verificar después de cada renderizado si es necesario continuar cargando
                     setTimeout(() => {
                         this.checkAutoLoad();
                     }, 0);
                 }
 
-                // 滚动事件节流
+                // Limitador de eventos de desplazamiento
                 initScrollListener() {
                     window.addEventListener('scroll', throttle(() => {
                         if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
                             this.renderTable();
                         }
-                        this.checkAutoLoad(); // 每次滚动后都检测
-                    }, 200)); // 200ms 节流
+                        this.checkAutoLoad(); // Detectar después de cada desplazamiento
+                    }, 200)); // Limitador de 200ms
                 }
 
                 initFilters() {
