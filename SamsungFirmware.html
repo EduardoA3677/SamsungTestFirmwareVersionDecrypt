@@ -548,19 +548,19 @@
                 processData(rawData) {
                     this.processedData = [];
                     if (!rawData || typeof rawData !== 'object') {
-                        console.error('无效的数据格式:', rawData);
+                        console.error('Formato de datos inválido:', rawData);
                         return;
                     }
                     Object.entries(rawData).forEach(([model, regions]) => {
-                        // 跳过 "上次更新时间"
+                        // Saltar "Última actualización"
                         if (model === "上次更新时间") {
-                            document.getElementById('lastUpdate').textContent = `更新时间：${regions}`;
+                            document.getElementById('lastUpdate').textContent = `Última actualización: ${regions}`;
                             return;
                         }
                         Object.entries(regions).forEach(([regionCode, details]) => {
                             if (!details || !details.最新正式版 || !details.常规更新测试版) {
-                                console.warn('跳过无效数据:', { model, regionCode, details });
-                                return; // 跳过无效数据
+                                console.warn('Saltando datos inválidos:', { model, regionCode, details });
+                                return; // Saltar datos inválidos
                             }
                             this.processedData.push({
                                 model,
@@ -643,11 +643,11 @@
                         </td>
                         <td style="min-width:180px; vertical-align:middle; ">
                             <div>
-                                <span style="font-weight:bold;color:#4a90e2;display:inline-block;text-align:right;">日常更新(OS:${item.stableOS || '未知'})：</span>
+                                <span style="font-weight:bold;color:#4a90e2;display:inline-block;text-align:right;">Actualización Regular(OS:${item.stableOS || 'Desconocido'})：</span>
                                 ${item.minor ? `<span class="version-badge beta-badge">${item.minor}</span>` : '-'}
                             </div>
                             <div>
-                                <span style="font-weight:bold;color:#6c5ce7;display:inline-block;text-align:right;">下个版本(OS:${item.devOS || '未知'})：</span>
+                                <span style="font-weight:bold;color:#6c5ce7;display:inline-block;text-align:right;">Próxima Versión(OS:${item.devOS || 'Desconocido'})：</span>
                                 ${item.major ? `<span class="version-badge beta-badge">${item.major}</span>` : '-'}
                             </div>
                         </td>
@@ -659,9 +659,9 @@
                     // 判断是否已到最后，插入提示行
                     if (this.currentIndex >= filteredData.length && filteredData.length > 0) {
                         const tipRow = document.createElement('tr');
-                        tipRow.setAttribute('data-tip', 'end'); // 标记提示行
-                        tipRow.className = 'end-tip-row'; // 添加美观样式和动画
-                        tipRow.innerHTML = `<td colspan="8">加载完毕！共 ${filteredData.length} 条数据</td>`;
+                        tipRow.setAttribute('data-tip', 'end'); // Marcar fila de pista
+                        tipRow.className = 'end-tip-row'; // Agregar estilo y animación
+                        tipRow.innerHTML = `<td colspan="8">¡Carga completa! Total ${filteredData.length} registros</td>`;
                         fragment.appendChild(tipRow);
                     }
                     this.tableBody.appendChild(fragment);

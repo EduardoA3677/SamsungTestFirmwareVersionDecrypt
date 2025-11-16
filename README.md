@@ -28,123 +28,121 @@ Example: [China S24 Ultra](https://fota-cloud-dn.ospserver.net/firmware/CHC/SM-S
 
 ---
 
-## 📖 Detailed Documentation (Chinese)
+## 📖 Documentación Detallada (Español)
 
-# How to Get Information from Samsung Firmware Version Numbers?
-以S24 Ultra这个型号的"S9280ZCU4BXKV/S9280CHC4BXKV/S9280ZCU4BXKV"为例，
-首先以"/"为分隔符将版本号分为3个部分，分别表示`内部版本号`、`CSC版本号`、`基带版本号`(wifi版无基带版本号)
-## 以内部版本号"S9280ZCU4BXKV"为例：
-1. 第一部分：前4个字符(`S928`)表示手机型号:
-    - `S`: 第一个字符表示所属系列，如"S"代表S系列，除此之外，还有F开头的(折叠屏设备)、A开头(A系列)、E开头的、以及曾经的N开头(Note系列)等，（PS:S21系列及以前用G开头，S22系列开始变成了"S"开头)；
-    - `9`:第二个字符"9"代表高端系列，数字越小，代表越低端，如S23 FE版本就是S711；
-    - `2`：第三个字符代表该系列代数(从**0**开始计)，S24 Ultra(S928)是2，S23 Ultra是(S918)1，S25 Ultra(S938)是3,；
-    - `8`:第四个字符代表同一系列的不同型号及手机支持的网络制式，如S24 Ultra是"S928",S24+是"S926",S24是"S921"，数字越大，设备尺寸越大及配置越好，如设备支持4G/LTE或5G,通常第四位是"0"或"5"代表仅支持4G，"1"、"6"或"8"代表支持5G.所以"S928"代表S系列第三代支持5G的设备
-2. 第二部分：第5至7位字符(`0ZC`)或第5至8位字符(特殊的如：美版解锁版本或其他代号变体)表示相关目标区域的信息：
-   - `0`:第一个`0`代表中国国行和中国香港地区，`U`代表美国(`U1`代表解锁版本)，`W`代表加拿大，`N`代表韩国，`B`代表世界其他地区(有时候三星对某些设备使用`E`代替`B`,对于4G/LTE版本，使用`F`代替`B`或`E`)。某些型号对 `G、M、B2、FG、S、V、VL 和其他变体`的使用受到限制。
-   - `ZC`:第二个和第三个也与区域有关，美版运营商锁定的型号为`SG`,而解锁的型号为`UE`;加拿大是`VL`,中国国行是`ZC`,香港版是`ZH`,世界其他地区是`XX`;三星对这两个字符使用的变体没有第一个区域标识符多
-> 通常，固件版本的前7个字符(美版解锁设备和其他变体为8个字符)出厂后不会再随着更新变化。如果新的固件版本号前7/8个字符与当前内部版本号不一致，则不应该更新此固件。这几个字符定义该更新固件所针对的设备型号和区域。虽然有一些方法可以安装不同区域的更新，但这不是安全的做法，应该避免使用。
+# ¿Cómo Obtener Información de los Números de Versión del Firmware de Samsung?
+Tomando como ejemplo el modelo S24 Ultra "S9280ZCU4BXKV/S9280CHC4BXKV/S9280ZCU4BXKV",
+primero divide el número de versión en 3 partes usando "/" como separador, representando `número de versión interna`, `número de versión CSC`, `número de versión de banda base` (la versión wifi no tiene número de versión de banda base)
+## Tomando como ejemplo el número de versión interna "S9280ZCU4BXKV":
+1. Primera parte: Los primeros 4 caracteres (`S928`) representan el modelo del teléfono:
+    - `S`: El primer carácter representa la serie, como "S" representa la serie S. Además, están las series que comienzan con F (dispositivos plegables), A (serie A), E, y anteriormente N (serie Note), etc. (Nota: la serie S21 y anteriores usaban G al inicio, a partir de la serie S22 cambiaron a "S");
+    - `9`: El segundo carácter "9" representa la serie de gama alta. Cuanto menor es el número, más baja es la gama. Por ejemplo, la versión S23 FE es S711;
+    - `2`: El tercer carácter representa la generación de la serie (comenzando desde **0**). S24 Ultra (S928) es 2, S23 Ultra (S918) es 1, S25 Ultra (S938) es 3;
+    - `8`: El cuarto carácter representa diferentes modelos de la misma serie y el estándar de red soportado. Por ejemplo, S24 Ultra es "S928", S24+ es "S926", S24 es "S921". Cuanto mayor es el número, mayor es el tamaño del dispositivo y mejores las especificaciones. Para soporte 4G/LTE o 5G, usualmente el cuarto dígito "0" o "5" representa solo soporte 4G, "1", "6" o "8" representan soporte 5G. Así que "S928" representa un dispositivo de tercera generación de la serie S con soporte 5G
+2. Segunda parte: Los caracteres 5 a 7 (`0ZC`) o caracteres 5 a 8 (especiales como: versión desbloqueada de EE.UU. u otras variantes de código) representan información relacionada con la región objetivo:
+   - `0`: El primer `0` representa China continental y Hong Kong, `U` representa EE.UU. (`U1` representa versión desbloqueada), `W` representa Canadá, `N` representa Corea, `B` representa otras regiones del mundo (a veces Samsung usa `E` en lugar de `B` para ciertos dispositivos, para versiones 4G/LTE, usan `F` en lugar de `B` o `E`). Algunos modelos tienen uso limitado de `G, M, B2, FG, S, V, VL y otras variantes`.
+   - `ZC`: El segundo y tercer carácter también están relacionados con la región. Los modelos bloqueados por operador de EE.UU. son `SG`, y los modelos desbloqueados son `UE`; Canadá es `VL`, China continental es `ZC`, Hong Kong es `ZH`, otras regiones del mundo son `XX`; Samsung no usa tantas variantes para estos dos caracteres como para el primer identificador de región
+> Normalmente, los primeros 7 caracteres de la versión del firmware (8 caracteres para dispositivos desbloqueados de EE.UU. y otras variantes) no cambiarán después de la fabricación con las actualizaciones. Si los primeros 7/8 caracteres del nuevo número de versión del firmware no coinciden con el número de versión interna actual, no debes actualizar este firmware. Estos caracteres definen el modelo del dispositivo y la región objetivo de la actualización del firmware. Aunque existen métodos para instalar actualizaciones de diferentes regiones, esto no es una práctica segura y debe evitarse.
 
-3. 第三部分:第8到10位字符`U4B`或第9到11为字符(特殊的如美版解锁版本或其他代号变体)表示更新的内容：
-   - `U`:表示更新的内容，通常为`U`或`S`这两种字符，`U`表示有新功能或主要功能更新，`S`表示是安全补丁更新，只有三星和谷歌的最新安全修复程序用`S`表示。
-   - `4`:表示bootloader编号，该字符限制了你能降级的版本号，因此无法降级到低于该编号的固件，例如不能从bootloader编号为`4`的固件降级到`3`的固件，该字符以`0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ`的顺序递增。
-   - `A`:表示主要更新版本，包括OS升级，以`A`开始，按照`ABCDEFGHIJKLMNOPQRSTUVWXYZ`的顺序递增，例如当前S24 Ultra为Android 14，下一个版本为Android 15,该字符将会变成`B`，以此类推。
+3. Tercera parte: Los caracteres 8 a 10 `U4B` o caracteres 9 a 11 (especiales como versión desbloqueada de EE.UU. u otras variantes de código) representan el contenido de la actualización:
+   - `U`: Representa el contenido de la actualización, usualmente `U` o `S` estos dos caracteres. `U` indica nuevas funciones o actualizaciones de funciones principales, `S` indica actualización de parche de seguridad, solo las últimas correcciones de seguridad de Samsung y Google se representan con `S`.
+   - `4`: Representa el número de bootloader. Este carácter limita la versión a la que puedes degradar, por lo que no puedes degradar a firmware con un número inferior a este. Por ejemplo, no puedes degradar de firmware con bootloader número `4` a `3`. Este carácter se incrementa en el orden `0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ`.
+   - `A`: Representa la versión principal de actualización, incluidas las actualizaciones del SO. Comienza con `A` y se incrementa en el orden `ABCDEFGHIJKLMNOPQRSTUVWXYZ`. Por ejemplo, el S24 Ultra actual es Android 14, la próxima versión será Android 15, este carácter cambiará a `B`, y así sucesivamente.
 
-4. 第四部分：最后三个字符`XKV`表示固件构建日期：
-   - `X`：表示固件构建日期中的年份，以`A`开始表示`2021`年，`B`表示`2022`,以此类推，`X`表示`2024`，(问题来了：等2026年的`Z`用了，那`2027`年用什么字母表示呢？难道又从`A`开始吗？😆)
-   - `K`：表示固件构建日期中的月份，以`A`开始表示`1月份`，`B`表示`2月份`，以此类推，`K`表示`11月份`，取值为`ABCDEFGHIJKL`
-   - `v`:表示固件构建的内部标识符，暂且将它当作每个内部测试固件的标识符吧。三星测试固件每个月会有多个测试固件,`123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ`,三星能用到`Z`也是厉害了，例如S24 Ultra韩版测试固件都到了`Y`了(测试固件版本号:`S928NKSU4ZXKY/S928NOKR4ZXKY/S928NKSU4BXKY`)
+4. Cuarta parte: Los últimos tres caracteres `XKV` representan la fecha de compilación del firmware:
+   - `X`: Representa el año en la fecha de compilación del firmware. Comienza con `A` representando el año `2021`, `B` representa `2022`, y así sucesivamente, `X` representa `2024`. (La pregunta es: después de usar `Z` para 2026, ¿qué letra se usará para `2027`? ¿Volverá a comenzar desde `A`? 😆)
+   - `K`: Representa el mes en la fecha de compilación del firmware. Comienza con `A` representando `enero`, `B` representa `febrero`, y así sucesivamente, `K` representa `noviembre`. Los valores son `ABCDEFGHIJKL`
+   - `v`: Representa el identificador interno de la compilación del firmware, considerémoslo como el identificador para cada firmware de prueba interno. Samsung tiene múltiples firmwares de prueba cada mes, `123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ`. Samsung puede usar hasta `Z`, es impresionante. Por ejemplo, el firmware de prueba de la versión coreana S24 Ultra ya llega a `Y` (número de versión del firmware de prueba: `S928NKSU4ZXKY/S928NOKR4ZXKY/S928NKSU4BXKY`)
 
-如果想查看三星测试固件服务器的新增历史，可点击[查看三星测试固件记录日志](https://github.com/Mai19930513/SamsungTestFirmwareVersionDecrypt/blob/master/test_firmware_changelog.txt)，想查看已解码的三星固件版本号，可点击[查看三星测试固件版本号](https://github.com/Mai19930513/SamsungTestFirmwareVersionDecrypt/blob/master/firmware.json)
-> 注意:该记录的固件版本号并不完整，受限于添加的设备型号以及区域，以及脚本解码固件版本号MD5值百分比，部分测试固件版本号未解码。
+Si quieres ver el historial de nuevas adiciones del servidor de firmware de prueba de Samsung, haz clic en [Ver registro de firmware de prueba de Samsung](https://github.com/Mai19930513/SamsungTestFirmwareVersionDecrypt/blob/master/test_firmware_changelog.txt). Si quieres ver los números de versión del firmware de Samsung ya decodificados, haz clic en [Ver números de versión del firmware de prueba de Samsung](https://github.com/Mai19930513/SamsungTestFirmwareVersionDecrypt/blob/master/firmware.json)
+> Nota: Los números de versión del firmware registrados no están completos, limitados por los modelos de dispositivos agregados y las regiones, así como el porcentaje de MD5 del script que decodifica los números de versión del firmware, algunos números de versión del firmware de prueba no están decodificados.
 
 
-以上内容来自[sammyguru](https://sammyguru.com/how-to-read-firmware-version-of-your-samsung-galaxy-device/)
+El contenido anterior proviene de [sammyguru](https://sammyguru.com/how-to-read-firmware-version-of-your-samsung-galaxy-device/)
 
-# CSC相关知识
-## 什么是三星CSC文件？
-CSC表示国家/运营商特定产品代码或消费者软件定制，是三星固件文件的一部分。提取固件时，您将获得` AP、BL、CP、CSC` 和 `Home CSC `几个文件(备注:Wifi版本设备没有`CP`基带文件)。
-CSC文件主要包含与你的网络运营商、位置、设备语言设置、网络设置和固件更新服务器相关的信息。
-> CSC的一些例子包括美国的ATT（AT&T）、TMB（T-Mobile）、西班牙的ATL（沃达丰）和印度的IND、INA、INS（无品牌）。
-## `Home CSC`和`CSC`如何选择？
-  1. 想保留数据更新固件，选择`Home CSC`开头的CSC文件
-  2. 想重置手机，选择`CSC`开头的CSC文件
+# Conocimientos relacionados con CSC
+## ¿Qué es el archivo CSC de Samsung?
+CSC significa Código de Producto Específico de País/Operador o Personalización de Software del Consumidor, es parte del archivo de firmware de Samsung. Al extraer el firmware, obtendrás varios archivos como `AP, BL, CP, CSC` y `Home CSC` (Nota: los dispositivos con versión Wifi no tienen archivo de banda base `CP`).
+El archivo CSC contiene principalmente información relacionada con tu operador de red, ubicación, configuración de idioma del dispositivo, configuración de red y servidor de actualización de firmware.
+> Algunos ejemplos de CSC incluyen ATT (AT&T) para EE.UU., TMB (T-Mobile), ATL (Vodafone) para España e IND, INA, INS (sin marca) para India.
+## ¿Cómo elegir entre `Home CSC` y `CSC`?
+  1. Si quieres conservar los datos al actualizar el firmware, elige el archivo CSC que comienza con `Home CSC`
+  2. Si quieres restablecer el teléfono, elige el archivo CSC que comienza con `CSC`
 
-## 什么是OXM Multi-CSC固件？
-OXM是一个超集，它内部包含许多子CSC。如果您的Samsung设备具有多个CSC固件，那么您可以轻松更改区域。
-OXM Multi-CSC包含以下CSC:
+## ¿Qué es el firmware OXM Multi-CSC?
+OXM es un superconjunto que contiene internamente muchos sub-CSC. Si tu dispositivo Samsung tiene firmware multi-CSC, entonces puedes cambiar fácilmente la región.
+OXM Multi-CSC contiene los siguientes CSC:
 > ACR AFG AFR ARO ATO AUT BGL BNG BRI BTC BTU CAC CAM CHO COO DBT DKR ECT EGY EON ETL EUR GLB ILO INS ITV KSA LAO LUX LYS MID MM1 MWD MYM NEE NPL ORX OXM PAK PHE PHN ROM SEB SEE SEK SER SIN SKZ SLK SMA STH THL THR TMC TPA TPH TTT TUN TUR WTL XEF XEH XEO XEU XFE XME XSG XSP XTC XXV ZTO 
 
-除了 OXM，还有一堆更多的多 CSC，包括:
-> ODD、ODM、OJK、OJP、OJV、OLB、OLC、OMC、OSW、OWO、OXA、OXE、OXF、OXI、OXX、OYA、OYM、OYN、OYV 和 OZS、VFG、VFR、YXY。
+Además de OXM, hay muchos más multi-CSC, incluyendo:
+> ODD, ODM, OJK, OJP, OJV, OLB, OLC, OMC, OSW, OWO, OXA, OXE, OXF, OXI, OXX, OYA, OYM, OYN, OYV y OZS, VFG, VFR, YXY.
 
-以下是单CSC固件:
+Los siguientes son firmwares CSC únicos:
 > BTC BTU CPW EMP GLB LYS MAT MM1 MTL NZC OPS PAN PNG PRO SIN SMA SMP STH TEB TEL TMC TNZ VAU VFJ VNZ WTL XFA XNF XNX XNZ XSA
 
-某些地区会首先收到系统更新，其他地区可能要几天、几周甚至几个月的时间才能收到更新，如果你的设备具有OXM Multi CSC固件，那么您可以轻松下载并安装更新所在的区域的固件文件。这不会影响您原来的CSC。
-## 为什么需要更换CSC文件？
-更改三星设备上的CSC主要是为了解锁特定于地区的限制。同样的完美例子是通话录音功能，该功能在许多国家/地区不可用。
-但是，您只需将 CSC 更改为受支持的区域之一（如 INS）或下面列出的以下任何一个区域，即可轻松启用此功能。
+Ciertas regiones recibirán actualizaciones del sistema primero, otras regiones pueden tardar días, semanas o incluso meses en recibir la actualización. Si tu dispositivo tiene firmware OXM Multi CSC, entonces puedes descargar e instalar fácilmente el archivo de firmware de la región donde está la actualización. Esto no afectará tu CSC original.
+## ¿Por qué necesitas cambiar el archivo CSC?
+Cambiar el CSC en tu dispositivo Samsung es principalmente para desbloquear restricciones específicas de la región. Un ejemplo perfecto es la función de grabación de llamadas, que no está disponible en muchos países.
+Sin embargo, puedes habilitar fácilmente esta función simplemente cambiando el CSC a una de las regiones compatibles (como INS) o cualquiera de las siguientes regiones listadas a continuación.
 
-|区域代码|地区|
+|Código de Región|Región|
 |---|---|
-|EGY | 埃及 |
-|ILO | 以色列 |
-|INS | 印度 |
-|LYS | 利比亚 |
-|NPB | 尼泊尔 (尼泊尔电信, NCELL) |
-|SLK | 斯里兰卡 |
-|THL | 泰国 |
-|TUN | 突尼斯 |
-|XXV | 越南|
+|EGY | Egipto |
+|ILO | Israel |
+|INS | India |
+|LYS | Libia |
+|NPB | Nepal (Nepal Telecom, NCELL) |
+|SLK | Sri Lanka |
+|THL | Tailandia |
+|TUN | Túnez |
+|XXV | Vietnam|
 
-除此之外，还可以解锁其他功能，包括
+Además de esto, también puedes desbloquear otras funciones, incluyendo
 
-除此之外，您还可以解锁许多其他功能，包括：
+- Faster OTA updates(Actualizaciones OTA más rápidas)
+- Spam Blocking(Bloqueo de spam)
+- Google Wallet(Cartera de Google)
+- Samsung Pay(Pago de Samsung)
+- ECG and Blood Pressure monitor(Monitor de ECG y presión arterial)
+- VoLTE(Llamadas de voz de alta definición)
+- WiFi Calling(Llamadas WiFi)
 
-- Faster OTA updates(更快地OTA更新)
-- Spam Blocking(骚扰拦截)
-- Google Wallet(谷歌钱包)
-- Samsung Pay(三星钱包)
-- ECG and Blood Pressure monitor(心电图和血压监测仪)
-- VoLTE(高清语音通话)
-- WiFi Calling(WiFi通话)
+> Nota: Ningún CSC puede obtener todas las funciones, hay que elegir. Obtener ciertas funciones también puede causar que otras funciones no estén disponibles, cada uno decide.
 
-> 注意：没有某个CSC能获得全部功能，有舍有得，获得某些功能也可能会导致其他功能无法使用，自己取舍。
-
-## 如何获取自己的CSC信息
-### 方法一：拨号暗码
-打开电话app，输入`*#1234#`，第三行CSC开头的就是CSC信息，如下图手机型号`S9280`后面的`CHC`就是CSC信息，表示中国国行版本，`TGY`就是中国香港地区使用的CSC
+## Cómo obtener tu información CSC
+### Método uno: Código de marcación
+Abre la aplicación de teléfono, ingresa `*#1234#`, la tercera línea que comienza con CSC es la información CSC. Como se muestra en la imagen a continuación, `CHC` después del modelo de teléfono `S9280` es la información CSC, representando la versión de China continental, `TGY` es el CSC usado en la región de Hong Kong, China
 ![](media/CSCinfo.jpg)
 
-### 方法二：手机设置界面
-打开手机设置，按`关于手机->软件信息`，查看倒数第三行的`运营商软件版本`信息，例如下面的`CHC/CHC,CHC/CHC`
+### Método dos: Interfaz de configuración del teléfono
+Abre la configuración del teléfono, ve a `Acerca del teléfono->Información del software`, mira la tercera línea desde abajo `Versión del software del operador`, por ejemplo, lo siguiente `CHC/CHC,CHC/CHC`
 ![](media/CSCinfo2.png)
-> 注意，`CHC/CHC,CHC/CHC`正确的分隔顺序应该是：第一部分`CHC`,第二部分`CHC,CHC`,第三部分`CHC`，下面解释每个部分含义：
->  - 第一部分`CHC`:表示当前使用的CSC，`CHC`表示中国国行
->  - 第二部分`CHC,CHC`:当前部分有两个，表示是为双卡，`CHC,CHC`表示支持国行双卡
->  - 第三部分`CHC`:表示设备的制造地区，`CHC`表示中国国行，如果是`TGY`表示中国香港制造，某些港版手机刷了国行固件，此位置仍未`TGY`,因此可以查看此制造地区信息分辨设备是不是中国国行版本。
+> Nota, el orden de división correcto de `CHC/CHC,CHC/CHC` debería ser: primera parte `CHC`, segunda parte `CHC,CHC`, tercera parte `CHC`, a continuación se explica el significado de cada parte:
+>  - Primera parte `CHC`: Representa el CSC actualmente en uso, `CHC` representa China continental
+>  - Segunda parte `CHC,CHC`: Esta parte tiene dos, indicando que es para dual SIM, `CHC,CHC` representa soporte para dual SIM de China continental
+>  - Tercera parte `CHC`: Representa la región de fabricación del dispositivo, `CHC` representa China continental, si es `TGY` representa fabricado en Hong Kong, China. Algunos teléfonos de Hong Kong con firmware de China continental, esta posición seguirá siendo `TGY`, por lo tanto, puedes ver esta información de región de fabricación para distinguir si el dispositivo es versión de China continental.
 
-## 如何更改CSC
-### 使用SamFW更改CSC
-通过[SamFW软件](https://samfw.com/blog/samfw-frp-tool-1-0-remove-samsung-frp-one-click)官方网站下载SamFw Tool软件，并解压缩，然后按照以下步骤操作：
-1. 首先取出SIM卡，通过USB数据线连接到PC
-2. 在SamFwFRPTool.exe软件右键,选择`以管理员身份运行`
-3. 查看手机是否被检测识别，如果识别后切换到`MTP`选项
-4. 进入`设置->手机开发者选项`，启用`USB调试`,
-5. 打开手机`电话`软件，输入`*#0*#"打开测试模式
-6. 点击SamFwFRPTool选项卡的`更改CSC`选项。
-7. 它将显示所有支持的CSC列表，从列表中选择新的CSC，然后单击`Change`确认更改。
-8. SamFwFRPTool将会开始更改CSC，成功后自动重新启动手机。
+## Cómo cambiar CSC
+### Usar SamFW para cambiar CSC
+Descarga el software SamFw Tool del [sitio web oficial de SamFW](https://samfw.com/blog/samfw-frp-tool-1-0-remove-samsung-frp-one-click), y descomprime, luego sigue estos pasos:
+1. Primero retira la tarjeta SIM, conecta al PC a través del cable de datos USB
+2. Haz clic derecho en SamFwFRPTool.exe, selecciona `Ejecutar como administrador`
+3. Verifica si el teléfono está detectado, si está reconocido cambia a la opción `MTP`
+4. Entra en `Configuración->Opciones de desarrollador del teléfono`, habilita `Depuración USB`
+5. Abre el software de `Teléfono`, ingresa `*#0*#` para abrir el modo de prueba
+6. Haz clic en la opción `Cambiar CSC` en la pestaña de SamFwFRPTool.
+7. Mostrará una lista de todos los CSC compatibles, selecciona el nuevo CSC de la lista, luego haz clic en `Change` para confirmar el cambio.
+8. SamFwFRPTool comenzará a cambiar el CSC, después de tener éxito reiniciará automáticamente el teléfono.
 
-### 使用Odin工具更改CSC
-通过下载特定的多CSC（OXM）的三星固件，按顺序选择AP BL CP CSC文件.
-> 注意:该操作会擦除设备中的所有数据，使其保修无效，并触发Knox计数器为1。
+### Usar la herramienta Odin para cambiar CSC
+Descargando firmware Samsung específico de multi-CSC (OXM), selecciona los archivos AP BL CP CSC en orden.
+> Nota: Esta operación borrará todos los datos del dispositivo, invalidará su garantía y activará el contador Knox a 1.
 
-以上内容来自[droidwin](https://droidwin.com/change-csc-codes-samsung/)
+El contenido anterior proviene de [droidwin](https://droidwin.com/change-csc-codes-samsung/)
 
-## 三星CSC列表
-打开Goole，搜索"Samsung CSC code list"，可以查看三星CSC信息。
-以下表格来自Github的`cslfiu`仓库中的`CSC-list.csv`，[仓库地址](https://github.com/cslfiu/Android-Security-Updates)
+## Lista CSC de Samsung
+Abre Google, busca "Samsung CSC code list", puedes ver la información CSC de Samsung.
+La siguiente tabla proviene del archivo `CSC-list.csv` del repositorio de Github `cslfiu`, [dirección del repositorio](https://github.com/cslfiu/Android-Security-Updates)
 
 | **CSC** | **国家/运营商**                 | **国家**                | **运营商**           | **ISO国家代码** | **区域** | **子区域**                   |
 |:-------:|:-----------------------------------:|:--------------------------:|:---------------------:|:------------:|:----------:|:-------------------------------:|
