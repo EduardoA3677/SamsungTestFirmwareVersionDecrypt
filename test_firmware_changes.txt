@@ -6889,3 +6889,5 @@ S25 Ultra-美国版服务器移除固件,对应版本号MD5编码为:<d9972b0f30
 S26 Pro-美国版服务器新增固件,对应版本号MD5编码为:<3c93380f5b1dd3470297875f48aab065>
 *****记录时间:2025-11-15 15:11*****
 S26 Pro-美国版服务器新增固件,对应版本号MD5编码为:<88a672affa0c0c91e4e8d9990acede4f>
+***** Record time: 2025-12-31 09:56 *****
+S23+-Panama version server added firmware, corresponding version MD5 encoding: <c702b48c38b265f88376e193fb291262>
