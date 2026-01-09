@@ -6895,3 +6895,5 @@ S23+-Panama version server added firmware, corresponding version MD5 encoding: <
 S23+-Panama version server added firmware, corresponding version MD5 encoding: <4e84d438546480e205a1808c17f8ad2a>
 ***** Record time: 2026-01-07 09:57 *****
 S23+-Panama version server added firmware, corresponding version MD5 encoding: <ea8b52642aadc58b97619ddbcf1e2c9c>
+***** Record time: 2026-01-10 00:32 *****
+S23+-Panama version server removed firmware, corresponding version MD5 encoding: <4c0f8ecc717c72c4adf1e3b45f841328>
