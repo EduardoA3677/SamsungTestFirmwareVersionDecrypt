@@ -36,14 +36,18 @@ jobs:
         TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
       run: |
         python samsung_test_firmware_decrypt.py
-    - name: Stage and commit
-      run: |
-          git config --global user.name ${{ secrets.USERNAME }}
-          git config --global user.email ${{ secrets.USEREMAIL }}
-          export TZ='Asia/Shanghai'
-          git add .
-          git diff --staged --quiet || git commit -m "Update json files" -a
-    - name: Push json files
-      uses: ad-m/github-push-action@master
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v5
       with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Update json files"
+          title: "Update firmware decryption json files"
+          body: |
+            Auto-generated PR to update firmware decryption json files.
+            
+            Generated at: ${{ github.run_id }}
+            Workflow: ${{ github.workflow }}
+          branch: firmware-update-${{ github.run_number }}
+          base: master
+          delete-branch: true
+          author: ${{ secrets.USERNAME }} <${{ secrets.USEREMAIL }}>
