@@ -19008,6 +19008,7 @@
                 "f812c5d804d80285cadf4bc21c4b5fd3",
                 "812b7648253495868cb23cefbd45957c",
                 "5beba0dba53b376065f3a953d0d3bd4f",
+                "13e6bc04d763c4aa9a67d163430a4920",
                 "6f8d1fe5154de3099dbcc9267dc92ae9",
                 "aa8df683af3b7f14597f8c1a6bd3183d",
                 "9d3c006e75415a40d61b9347372c86b0",
@@ -19075,7 +19076,7 @@
                 "19c9dd9e932d2be38d710ec940d98fe8",
                 "e1f29aaa525da3533fe2a726a1dc736a"
             ],
-            "firmware_count": 209
+            "firmware_count": 210
         }
     },
     "SM-S931B": {
@@ -21139,5 +21140,5 @@
             "固件数量": 200
         }
     },
-    "last_update_time": "2026-02-14 04:43"
+    "last_update_time": "2026-02-14 10:25"
 }
